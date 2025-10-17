@@ -1,0 +1,72 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Escapada a Estambul — Mini App</title>
+  <meta name="description" content="Mini app instalable para consultar la escapada a Estambul. Funciona online y con modo offline completo tras primer despliegue." />
+  <meta name="theme-color" content="#0d6efd" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" sizes="192x192" href="./assets/icons/icon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/icon-192.png" />
+  <link rel="stylesheet" href="./assets/styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <img src="./assets/icons/icon-192.png" alt="Icono" class="logo" />
+      <div>
+        <h1>Escapada a Estambul</h1>
+        <p class="subtitle">Sr. Francisco Javier Pérez del Pulgar</p>
+      </div>
+    </div>
+    <button id="installBtn" class="install-btn" hidden>Instalar</button>
+  </header>
+
+  <main class="app-main">
+    <div id="onlineView" class="card">
+      <div class="frame-wrapper">
+        <iframe id="tripFrame" title="Página del viaje" src="https://www.karukluxurytravel.com/escapada-a-estambul-sr-francisco-javier-perez-del-pulgar/" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="tips">
+        <p>Consejo: guarda la app en tu pantalla de inicio para acceso rápido.</p>
+      </div>
+    </div>
+
+    <div id="offlineView" class="card hidden">
+      <h2>Sin conexión</h2>
+      <p>Estás sin Internet. Te mostramos la **versión completa** del contenido guardado en tu dispositivo.</p>
+      <section class="offline-summary">
+        <h3>Resumen</h3>
+        <ul>
+          <li>Destino: <strong>Estambul</strong></li>
+          <li>Duración típica: 4 días / 3 noches</li>
+          <li>Highlights: Bósforo, Mezquita Azul, Santa Sofía, Gran Bazar</li>
+        </ul>
+      </section>
+      <section class="snapshot-section">
+        <h3>Contenido del programa</h3>
+        <div id="snapshot" class="snapshot"></div>
+      </section>
+      <div class="cta-row">
+        <a class="btn" href="mailto:info@karukluxurytravel.com?subject=Consulta%20Escapada%20Estambul">Contactar por email</a>
+        <a class="btn outline" href="#" onclick="location.reload()">Recargar</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    <small>Mini app PWA · © 2025</small>
+  </footer>
+
+  <script src="./assets/app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js').catch(console.error);
+      });
+    }
+  </script>
+</body>
+</html>

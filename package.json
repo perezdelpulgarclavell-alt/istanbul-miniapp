@@ -1,0 +1,12 @@
+{
+  "name": "istanbul-miniapp",
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/snapshot.mjs",
+    "postbuild": "echo Build finished"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12"
+  }
+}

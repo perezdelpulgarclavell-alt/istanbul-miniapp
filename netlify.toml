@@ -1,0 +1,12 @@
+
+[build]
+  command = "npm ci && npm run build"
+  publish = "/"
+
+[build.environment]
+  SNAPSHOT_URL = "https://www.karukluxurytravel.com/escapada-a-estambul-sr-francisco-javier-perez-del-pulgar/"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
